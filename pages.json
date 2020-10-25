@@ -1,0 +1,32 @@
+{
+	"easycom": {
+			"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+		},
+		
+	"pages": [
+	{
+		"path": "pages/home/Home",
+		"style": {
+			"navigationBarTitleText": "首页"
+	}
+	},
+	{
+		"path": "pages/table/Table",
+		"style": {
+			"navigationBarTitleText": "搜索结果"
+	}
+	},
+	{
+		"path": "pages/detail/Detail",
+		"style": {
+			"navigationBarTitleText": "详情"
+	}
+	}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#FFFFFF"
+	}
+}

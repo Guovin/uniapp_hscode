@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "搜索结果",
+  "usingComponents": {
+    "u-table": "/uview-ui/components/u-table/u-table",
+    "u-tr": "/uview-ui/components/u-tr/u-tr",
+    "u-th": "/uview-ui/components/u-th/u-th",
+    "u-td": "/uview-ui/components/u-td/u-td",
+    "u-back-top": "/uview-ui/components/u-back-top/u-back-top",
+    "u-top-tips": "/uview-ui/components/u-top-tips/u-top-tips"
+  }
+}
