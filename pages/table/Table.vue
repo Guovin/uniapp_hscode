@@ -7,31 +7,26 @@
 	    <!-- 搜索区域 -->
 	    <input placeholder="请输入商品名称或商品编码" v-model="key" @confirm="inputChange" class="uni-input">
 	    </input>
-    <!-- 卡片视图区域 -->
-      <!-- 表格区域 -->
-      <u-table>
-		  <!-- 表头区域 -->
-		  <u-tr class="u-tr">
-		  		<u-th class="u-th">商品编号</u-th>
-		  		<u-th class="u-th">商品名称</u-th>
-		  		<u-th class="u-th">计量单位</u-th>
-		  		<u-th class="u-th">出口退税率(%)</u-th>
-				<u-th class="u-th">监管条件</u-th>
-				<u-th class="u-th">检验检疫</u-th>
-				<u-th class="u-th">更多信息</u-th>
-		  	</u-tr>
-			<!-- 表格数据区域 -->
-			<u-tr class="u-tr" v-for="(list,index) in keyList" :key="index">
-					<u-td class="u-td">{{list.hscode}}</u-td>
-					<u-td class="u-td">{{list.product_name}}</u-td>
-					<u-td class="u-td">{{list.unit}}</u-td>
-					<u-td class="u-td">{{list.export_retax}}</u-td>
-					<u-td class="u-td">{{list.supervision_code}}</u-td>
-					<u-td class="u-td">{{list.ciq_code}}</u-td>
-					<u-td class="u-td"><button @click="showDetail(list.hscode)">详情</button></u-td>
-				</u-tr>
-      </u-table>
-      <!-- 分页功能区域 -->
+  
+	<!-- 卡片视图区 -->
+	  <u-card box-shadow="true" border :show-head="false">
+	  		<view class="" slot="body">
+				<view v-for="(list,index) in keyList" :key="index">
+	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0" @click="showDetail(list.hscode,list.product_name)">
+	  				<view class="u-body-item-title u-line-2">
+						<!-- 遍历处理高亮搜索词 -->
+						<span v-for="(item,i) in keyLists[index]" :key="i">
+						<span v-if="item.show == true" style="font-size: 16px;color: red;font-weight: 500;">{{item.str}}</span>
+						<span v-else style="font-size: 16px;font-weight: 500;">{{item.str}}</span>
+						</span>
+						<span style="font-weight: bolder;font-size: 20px;" class="span_block">{{list.hscode}}</span>
+						<span style="font-size:14px;color: #6E6E6E;" class="span_block">出口退税率：<span style="font-weight: 500;">{{list.export_retax}}</span></span>
+					</view>
+					<u-icon name="arrow-right" style="color: #BBBBBB; position: absolute;left: 95%;"></u-icon>
+	  			</view>
+				</view>
+	  		</view>
+	  	</u-card>
       
 	<!-- 回到顶部 -->
 	<u-back-top :scroll-top="scrollTop"></u-back-top>
@@ -48,6 +43,8 @@
 		key: '',
         // 关键词搜索列表
         keyList: [],
+		//高亮搜索词列表
+		keyLists: [],
         // hscode
         hscode: '',
         // hscode搜索列表
@@ -57,11 +54,10 @@
 		//被点击行的hscode
 		rowHscode:'',
 		//回到顶部
-		scrollTop:0,
-		//详情对象的Hscode
-		detailHscode:''
+		scrollTop:0
       }
     },
+	
 	onPageScroll(e) {
 			this.scrollTop = e.scrollTop;
 		},
@@ -87,6 +83,7 @@
 									duration: '2300'
 								})
 					this.keyList = res.data.data.list
+					this.searchQuestion()
 			    },
 				fail:(res)=>{
 					return this.$refs.uTips.show({
@@ -99,12 +96,12 @@
       },
       
       // 点击详情跳转
-      showDetail(hscode) {
-		this.detailHscode = hscode
+      showDetail(hscode,title) {
         this.$Router.push({
           path: '/pages/detail/Detail',
           query: {
-            hscode: this.detailHscode
+            hscode: hscode,
+			title: title
           }
         })
       },
@@ -112,15 +109,73 @@
 	  //输入框change事件
 	  inputChange() {
 	    this.getListByKey()
-	  }
-    },
+	  },
+	  
+	  //搜索词高亮
+	  searchQuestion() {
+					//将商品名称每一个字拆分成一个数组，数组中包含该字str以及是否符合搜索词而显示条件show
+	  				let hilight_word = function(key, word) {
+	  					//indexof方法的作用：判断是否包含传入参数，返回大于等于0的值表示包含
+	  					let idx = word.indexOf(key);
+	  					let t = [];
+	  					if (idx > -1) {
+	  						if (idx == 0) {
+	  							t = hilight_word(key, word.substr(key.length));
+	  							t.unshift({
+	  								show: true,
+	  								str: key,
+	  							});
+	  							return t;
+	  						}
+	  						if (idx > 0) {
+	  							t = hilight_word(key, word.substr(idx));
+	  							t.unshift({
+	  								show: false,
+	  								str: word.substring(0, idx),
+	  							});
+	  							return t;
+	  						}
+	  					}
+	  					return [{
+	  						show: false,
+	  						str: word,
+	  					}];
+	  				};
+	  				let searched = [];
+	  				let inputs = this.key;
+	  				for (let i = 0; i < this.keyList.length; i++) {
+	  					var current_word = this.keyList[i].product_name;
+	  					if (current_word.indexOf(inputs) > -1) {
+	  						searched.push(hilight_word(inputs, current_word))
+	  					}
+	  				}
+	  				this.keyLists = searched;
+	  			}
+
+	},
+	
     mounted() {
 		//输入框内容默认为上一页输入的内容
 		this.key = this.$Route.query.key
-      this.getListByKey()
+		this.getListByKey()
     }
   }
 </script>
 
 <style scoped>
+.u-card{
+	/* background-color: #EEEEEE; */
+	
+}
+
+.u-body-item {
+		font-size: 32rpx;
+		color: #333;
+		padding: 20rpx 10rpx;
+		margin:20rpx auto;
+	}
+
+.span_block{
+	display: block;
+}
 </style>
