@@ -4,13 +4,14 @@ body,
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #2D76C8;
 }
 
 view p {
     text-align: center;
     font-size: 35px;
     font-weight: bolder;
-    color: darkcyan;
+    color: #41B883;
   }
 
 view p span {
@@ -21,10 +22,11 @@ view p span {
   }
   
   .home_img {
-    height: 100px;
-	width: 100px;
+    height: 150px;
+	width: 350px;
     position: relative;
     left: 50%;
+	top:30px;
     transform: translate(-50%);
   }
   
@@ -35,7 +37,6 @@ view p span {
           padding: 0px;
           flex: 1;
           background-color: #FFFFFF;
-  		  background-color: #D3D3D3;
   		  width: 300px;
   		  margin: auto;
   		  margin-top: 40px;
@@ -43,7 +44,11 @@ view p span {
   		  border-radius: 8px;
   		  text-align: center;
       }
+	
+.span_block{
+	display: block;
+}
 
-.u-table{
-	margin-top:30px;
+.u-search{
+	width:300px;
 }

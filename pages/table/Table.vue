@@ -2,14 +2,16 @@
   <view class="table">
 	  <!-- logo区域 -->
 	  <img src="../../static/assets/logo.png" class="home_img">
-	  <p><span>HS</span>编码查询</p>
 
 	    <!-- 搜索区域 -->
-	    <input placeholder="请输入商品名称或商品编码" v-model="key" @confirm="inputChange" class="uni-input">
-	    </input>
-  
+          <!-- <input  placeholder="搜索" placeholder-class="iconfont iconsousuo" v-model="key" @confirm="inputChange"  class="uni-input" type="text" confirm-type="search">
+          </input> -->
+			<u-search margin="80px auto 15px auto"
+			 :show-action="true" v-model="key" action-text="搜索" @search="inputChange" 
+			 @custom="inputChange" :action-style="actionStyle"></u-search>
+			 
 	<!-- 卡片视图区 -->
-	  <u-card box-shadow="true" border :show-head="false">
+	  <u-card box-shadow="true" border  :head-border-bottom="true" :title="title" title-color="#B25756" title-size="25" :head-style="headStyle">
 	  		<view class="" slot="body">
 				<view v-for="(list,index) in keyList" :key="index">
 	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0" @click="showDetail(list.hscode,list.product_name)">
@@ -45,17 +47,26 @@
         keyList: [],
 		//高亮搜索词列表
 		keyLists: [],
-        // hscode
-        hscode: '',
-        // hscode搜索列表
-        hscodeList: [],
         //url
         urlKey: '',
-		//被点击行的hscode
-		rowHscode:'',
 		//回到顶部
-		scrollTop:0
-      }
+		scrollTop:0,
+		//卡片标题
+		title:'只显示前10条信息',
+		//卡片头部样式
+		headStyle:{
+			'text-align':'center',
+			'border-bottom': '#DDDDDD solid 2px',
+			'padding-left':'34%'
+		},
+		//搜索确认按钮样式
+		actionStyle:{
+			'background-color':'white',
+			'border-radius': '8px',
+			'font-size':'15px',
+			'font-weight':'bold'
+		}	
+	  }
     },
 	
 	onPageScroll(e) {
@@ -163,19 +174,14 @@
 </script>
 
 <style scoped>
-.u-card{
-	/* background-color: #EEEEEE; */
-	
+.u-border-bottom{
+	border-bottom: #DDDDDD solid 2px;
 }
 
 .u-body-item {
 		font-size: 32rpx;
 		color: #333;
 		padding: 20rpx 10rpx;
-		margin:20rpx auto;
+		margin:15rpx auto;
 	}
-
-.span_block{
-	display: block;
-}
 </style>
