@@ -1,18 +1,22 @@
 <template>
   <view class="detail">
 	  <!-- logo区域 -->
-	  <img src="../../static/assets/logo.png" class="home_img">
+	  <view class="logo_container">
+	  	<span class="logo" @click="goHome">
+	  	<span class="hs">HSCode</span>搜索
+	  	</span>
+	  </view>
 	    <!-- 搜索区域 -->
           <!-- <input  placeholder="搜索" placeholder-class="iconfont iconsousuo" v-model="key" @confirm="inputChange"  class="uni-input" type="text" confirm-type="search">
           </input> -->
-		  <u-search margin="80px auto 15px auto"
+		  <u-search margin="60px auto 15px auto"
 		   :show-action="true" v-model="key" action-text="搜索" @search="inputChange" 
-		   @custom="inputChange" :action-style="actionStyle"></u-search>
+		   @custom="inputChange" :action-style="actionStyle" :animation="true"></u-search>
 		  
 	  <!-- 卡片视图区 -->
 	  <view  v-for="(list,index) in goodList" :key="index">
 	  <!-- 商品名称 -->
-	  <u-card box-shadow="true" border title="商品名称" sub-title="点击卡片复制名称" title-color="#6E6E6E" title-size="25"
+	  <u-card padding="10" box-shadow="true" border title="商品名称" sub-title="点击卡片复制名称" title-color="#6E6E6E" title-size="25"
 	   sub-title-color="blue" sub-title-size="25" :head-style="headStyle" @click="copyName">
 	  		<view class="" slot="body">
 	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -23,7 +27,7 @@
 	  		</view>
 	  	</u-card>
 		<!-- 商品编码 -->
-	    <u-card box-shadow="true" border title="商品编码" sub-title="点击卡片复制编码" title-color="#6E6E6E" 
+	    <u-card padding="10" box-shadow="true" border title="商品编码" sub-title="点击卡片复制编码" title-color="#6E6E6E" 
 		title-size="25" sub-title-color="blue" sub-title-size="25" :head-style="headStyle" @click="copyHscode">
 	    		<view class="" slot="body">
 	  			<view>
@@ -36,7 +40,7 @@
 	    		</view>
 	    	</u-card>
 		<!-- 计量单位 -->
-		<u-card box-shadow="true" border title="计量单位" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
+		<u-card padding="10" box-shadow="true" border title="计量单位" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
 				<view class="" slot="body">
 				<view>
 					<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -63,7 +67,7 @@
 				</view>
 			</u-card>
 			<!-- 税率信息 -->
-			<u-card box-shadow="true" border title="税率信息" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
+			<u-card padding="10" box-shadow="true" border title="税率信息" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
 					<view class="" slot="body">
 					<view>
 						<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -98,7 +102,7 @@
 					</view>
 				</u-card>
 				<!-- 监管条件 -->
-				<u-card box-shadow="true" border title="监管条件" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
+				<u-card padding="10" box-shadow="true" border title="监管条件" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
 						<view class="" slot="body">
 						<view>
 							<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -117,7 +121,7 @@
 						</view>
 					</u-card>
 					<!-- 申报条件 -->
-					<u-card box-shadow="true" border title="申报要素" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
+					<u-card padding="10" box-shadow="true" border title="申报要素" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
 							<view class="" slot="body">
 							<view>
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -160,8 +164,12 @@
 			'background-color':'white',
 			'border-radius': '8px',
 			'font-size':'15px',
-			'font-weight':'bold'
-		}	
+			'font-color':'#3C3E49',
+			'height':'25px',
+			'line-height':'25px'
+		},
+		//回到顶部
+		scrollTop:0,
       }
     },
 	onPageScroll(e) {
@@ -239,6 +247,10 @@
 		  				data: this.hscode
 		  			})
 	  },
+	  //返回首页
+	  goHome(){
+	  		  this.$Router.push('/pages/home/Home')
+	  }
     },
     mounted() {
       this.getListByHsCode()
@@ -247,7 +259,7 @@
 </script>
 
 <style scoped>
-
+	
 .span_right{
 	position: absolute;
 	right:0;

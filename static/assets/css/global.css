@@ -6,44 +6,7 @@ body,
   height: 100%;
   background-color: #2D76C8;
 }
-
-view p {
-    text-align: center;
-    font-size: 35px;
-    font-weight: bolder;
-    color: #41B883;
-  }
-
-view p span {
-    text-align: center;
-    font-size: 35px;
-    font-weight: bolder;
-    color: firebrick;
-  }
   
-  .home_img {
-    height: 150px;
-	width: 350px;
-    position: relative;
-    left: 50%;
-	top:30px;
-    transform: translate(-50%);
-  }
-  
-  .uni-input {
-          height: 40px;
-          line-height: 40px;
-          font-size: 15px;
-          padding: 0px;
-          flex: 1;
-          background-color: #FFFFFF;
-  		  width: 300px;
-  		  margin: auto;
-  		  margin-top: 40px;
-		  margin-bottom: 15px;
-  		  border-radius: 8px;
-  		  text-align: center;
-      }
 	
 .span_block{
 	display: block;
@@ -51,4 +14,25 @@ view p span {
 
 .u-search{
 	width:300px;
+}
+
+.u-loading{
+	margin-left: 45%;
+}
+
+.logo_container{
+	text-align: center;
+	margin-top: 30px;
+}
+
+.logo{
+	font-size: 40px;
+	color: #fafafa;
+	letter-spacing: 0;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+}
+
+.hs{
+	color: #DD4A68;
+	font-size: 50px;
 }

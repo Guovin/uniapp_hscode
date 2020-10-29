@@ -4,7 +4,7 @@ import './static/assets/css/global.css'
 import Router from './router'
 import { RouterMount } from 'uni-simple-router'
 import uView from "uview-ui";
-import './static/assets/css/font/iconfont.css'
+import './static/assets/css/font/iconfont.scss'
 
 Vue.use(uView);
 
