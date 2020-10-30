@@ -4,7 +4,7 @@ body,
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: #2D76C8;
+  background-color: #2979ff;
 }
   
 	
@@ -33,6 +33,6 @@ body,
 }
 
 .hs{
-	color: #DD4A68;
+	color: #fa3534;
 	font-size: 50px;
 }

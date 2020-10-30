@@ -23,11 +23,11 @@
 	  				<view class="u-body-item-title u-line-2">
 						<!-- 遍历处理高亮搜索词 -->
 						<span v-for="(item,i) in keyLists[index]" :key="i">
-						<span v-if="item.show == true" style="font-size: 16px;color: red;font-weight: 500;">{{item.str}}</span>
-						<span v-else style="font-size: 16px;font-weight: 500;">{{item.str}}</span>
+						<span v-if="item.show == true" style="font-size: 16px;color: #fa3534;font-weight:600;">{{item.str}}</span>
+						<span v-else style="font-size: 16px;font-weight: bold;">{{item.str}}</span>
 						</span>
-						<span style="font-weight: bolder;font-size: 20px;" class="span_block">{{list.hscode}}</span>
-						<span style="font-size:14px;color: #6E6E6E;" class="span_block">出口退税率：<span style="font-weight: 500;">{{list.export_retax}}</span></span>
+						<span style="font-weight: bolder;font-size: 25px;" class="span_block">{{list.hscode}}</span>
+						<span style="font-size:14px;color: #6E6E6E;" class="span_block">出口退税率：<span style="font-weight: 500;color: #19be6b;">{{list.export_retax}}</span></span>
 					</view>
 					<u-icon name="arrow-right" style="color: #BBBBBB; position: absolute;left: 95%;"></u-icon>
 	  			</view>

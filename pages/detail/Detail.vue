@@ -17,18 +17,18 @@
 	  <view  v-for="(list,index) in goodList" :key="index">
 	  <!-- 商品名称 -->
 	  <u-card padding="10" box-shadow="true" border title="商品名称" sub-title="点击卡片复制名称" title-color="#6E6E6E" title-size="25"
-	   sub-title-color="blue" sub-title-size="25" :head-style="headStyle" @click="copyName">
+	   sub-title-color="#2b85e4" sub-title-size="25" :head-style="headStyle" @click="copyName">
 	  		<view class="" slot="body">
 	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 	  			<view class="u-body-item-title u-line-2">
-						<span style="font-size: 30px;font-weight: bolder;"  class="span_block">{{title}}</span>
+						<span style="font-size: 30px;font-weight: bolder;color: #fa3534;"  class="span_block">{{title}}</span>
 	  			</view>
 	  		</view>
 	  		</view>
 	  	</u-card>
 		<!-- 商品编码 -->
 	    <u-card padding="10" box-shadow="true" border title="商品编码" sub-title="点击卡片复制编码" title-color="#6E6E6E" 
-		title-size="25" sub-title-color="blue" sub-title-size="25" :head-style="headStyle" @click="copyHscode">
+		title-size="25" sub-title-color="#2b85e4" sub-title-size="25" :head-style="headStyle" @click="copyHscode">
 	    		<view class="" slot="body">
 	  			<view>
 	    			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
@@ -46,20 +46,20 @@
 					<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 						<view class="u-body-item-title u-line-2">
 						<view>
-						<span style="font-size: 15px;font-weight: bolder;">法定计量单位名称</span>
-						<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.unit_1_name}}</span>
+						<span style="font-size: 13px;font-weight: bold;color: #606266;">法定计量单位名称</span>
+						<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.unit_1_name}}</span>
 						</view>
 						<view>
-						<span style="font-size: 15px;font-weight: bolder;">法定计量单位</span>
-						<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.unit_1}}</span>
+						<span style="font-size: 13px;font-weight: bold;color: #606266;">法定计量单位</span>
+						<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.unit_1}}</span>
 						</view>
 						<view>
-						<span style="font-size: 15px;font-weight: bolder;">法定第二计量单位名称</span>
-						<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.unit_2_name}}</span>
+						<span style="font-size: 13px;font-weight: bold;color: #606266;">法定第二计量单位名称</span>
+						<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.unit_2_name}}</span>
 						</view>
 						<view>
-						<span style="font-size: 15px;font-weight: bolder;">法定第二计量单位</span>
-						<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.unit_2}}</span>
+						<span style="font-size: 13px;font-weight: bold;color: #606266;">法定第二计量单位</span>
+						<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.unit_2}}</span>
 						</view>
 					</view>
 					</view>
@@ -73,28 +73,28 @@
 						<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 							<view class="u-body-item-title u-line-2">
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">普通税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.ordinary}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">普通税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.ordinary}}</span>
 							</view>
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">优惠税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.most_discount}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">优惠税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.most_discount}}</span>
 							</view>
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">出口税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.export_rate}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">出口税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.export_rate}}</span>
 							</view>
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">出口退税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.export_retax}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">出口退税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.export_retax}}</span>
 							</view>
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">消费税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.customs_rate}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">消费税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.customs_rate}}</span>
 							</view>
 							<view>
-							<span style="font-size: 15px;font-weight: bolder;">增值税率</span>
-							<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.add_tax_rate}}</span>
+							<span style="font-size: 13px;font-weight: bold;color: #606266;">增值税率</span>
+							<span style="font-size: 15px;font-weight: bolder;color: #19be6b;" class="span_right">{{list.add_tax_rate}}</span>
 							</view>
 						</view>
 						</view>
@@ -107,29 +107,48 @@
 						<view>
 							<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 								<view class="u-body-item-title u-line-2">
+								<span style="font-size: 15px;color: #909399;" v-if="list.regulatory_code === '' ">暂无</span>
+								<view v-else>
+								<span style="font-size: 20px;font-weight: bolder;">{{list.regulatory_code}}</span>
 								<view>
-								<span style="font-size: 15px;font-weight: bolder;">监管代码</span>
-								<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.regulatory_code}}</span>
+								<span style="font-size: 13px;color: #606266;">{{list.regulatory_code_name}}</span>
 								</view>
-								<view>
-								<span style="font-size: 15px;font-weight: bolder;">检疫代码</span>
-								<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{list.ciq_code}}</span>
 								</view>
 							</view>
 							</view>
 						</view>
 						</view>
 					</u-card>
+					<!-- 检验检疫类别 -->
+					<u-card padding="10" box-shadow="true" border title="检验检疫类别" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
+							<view class="" slot="body">
+							<view>
+								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
+									<view class="u-body-item-title u-line-2">
+									<span style="font-size: 15px;color: #909399;" v-if="list.ciq_code === '' ">暂无</span>
+									<view v-else>
+									<span style="font-size: 20px;font-weight: bolder;">{{list.ciq_code}}</span>
+									<view>
+									<span style="font-size: 13px;color: #606266;">{{list.ciq_code_name}}</span>
+									</view>
+									</view>
+								</view>
+								</view>
+							</view>
+							</view>
+						</u-card>
 					<!-- 申报条件 -->
 					<u-card padding="10" box-shadow="true" border title="申报要素" title-color="#6E6E6E" title-size="25" :head-style="headStyle">
 							<view class="" slot="body">
 							<view>
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title u-line-2">
-									<view v-for="(item,index) in elementList" :key="index">
-										<span style="font-size: 15px;font-weight: bolder;">{{index}}</span>
-										<span style="font-size: 15px;font-weight: bolder;" class="span_right">{{item}}</span>
-									</view>
+											<u-row>
+												<u-col span="4" v-for="(item,i) in elementList" :key="i">
+													<u-tag :text="item" type="primary"/>
+												</u-col>
+											</u-row>
+									<!-- </span> -->
 									</view>
 								</view>
 								</view>
@@ -169,7 +188,7 @@
 			'line-height':'25px'
 		},
 		//回到顶部
-		scrollTop:0,
+		scrollTop:0
       }
     },
 	onPageScroll(e) {
@@ -194,7 +213,7 @@
 					this.goodList = arr
 					this.title = this.$Route.query.title
 					this.hscode = this.$Route.query.hscode
-					this.getelementList()
+					this.getElementList()
 					},
 			fail:(res)=>{
 				return this.$refs.uTips.show({
@@ -220,7 +239,7 @@
 	  },
 	  
 	  //生成申报要素列表
-	  getelementList(){
+	  getElementList(){
 		  var element
 		  this.goodList.forEach(item =>{
 			return element = item.element_require
