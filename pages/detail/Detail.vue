@@ -155,13 +155,12 @@
 								<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
 									<view class="u-body-item-title u-line-2">
 										<span style="font-size: 15px;color: #909399;" v-if="list.element_require === '' ">暂无</span>
-										<view v-else>
+										<view v-else v-for="(item,i) in elementList" :key="i">
 											<u-row>
-												<u-col span="4" v-for="(item,i) in elementList" :key="i">
-													<u-tag :text="item" type="primary"/>
-												</u-col>
+												<u-col span="1"><span style="font-size: 15px;color: #909399;">{{i}}</span></u-col>
+												<u-col span="11"><span style="font-size: 15px;font-weight: bold;color: #606266;" class="element_right">{{item}}</span></u-col>
 											</u-row>
-											</view>
+										</view>
 									</view>
 								</view>
 								</view>
@@ -359,6 +358,11 @@
 .span_right{
 	position: absolute;
 	right:0;
+}
+
+.element_right{
+	/* margin-left: 100%; */
+	/* padding-left: 0; */
 }
 
 .u-body-item {
