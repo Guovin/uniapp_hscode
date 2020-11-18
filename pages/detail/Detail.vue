@@ -3,12 +3,10 @@
 	  <!-- logo区域 -->
 	  <view class="logo_container">
 	  	<span class="logo" @click="goHome">
-	  	<span class="hs">HSCode</span>搜索
+	  	<span class="hs">HS</span>Code
 	  	</span>
 	  </view>
 	    <!-- 搜索区域 -->
-          <!-- <input  placeholder="搜索" placeholder-class="iconfont iconsousuo" v-model="key" @confirm="inputChange"  class="uni-input" type="text" confirm-type="search">
-          </input> -->
 		  <u-search margin="60px auto 15px auto"
 		   :show-action="true" v-model="key" action-text="搜索" @search="inputChange" 
 		   @custom="inputChange" :action-style="actionStyle" :animation="true"></u-search>
@@ -156,11 +154,23 @@
 									<view class="u-body-item-title u-line-2">
 										<span style="font-size: 15px;color: #909399;" v-if="list.element_require === '' ">暂无</span>
 										<view v-else v-for="(item,i) in elementList" :key="i">
-											<u-row>
+											<u-row justify="space-between">
 												<u-col span="1"><span style="font-size: 15px;color: #909399;">{{i}}</span></u-col>
-												<u-col span="11"><span style="font-size: 15px;font-weight: bold;color: #606266;" class="element_right">{{item}}</span></u-col>
+												<u-col span="11"><span style="font-size: 15px;font-weight: bold;color: #606266;" class="detail_right">{{item}}</span></u-col>
 											</u-row>
 										</view>
+										<!-- 申报要素样例 -->
+											<view class="hoverColor" id="exampleView">
+											  <u-row justify="space-between">
+												<u-col span="4"><span
+													style="font-size: 15px;font-weight: bold;color: #606266;">申报要素样例</span>
+												</u-col>
+												<u-col span="8"><span v-if="example !== ''"
+													style="font-size: 12px;font-weight: bolder;" class="detail_right">{{example}}</span>
+												  <span v-else style="font-size: 18px;font-weight: bolder;color: #909399;">无</span>
+												</u-col>
+											  </u-row>
+											</view>
 									</view>
 								</view>
 								</view>
@@ -209,7 +219,9 @@
 		//检疫条件名称列表
 		ciqName:[],
 		//检疫条件详情列表
-		ciqDetail:[]
+		ciqDetail:[],
+        //申报要素样例
+        example: ''
       }
     },
 	onPageScroll(e) {
@@ -233,6 +245,7 @@
 					arr.push(res.data.data.info)
 					this.goodList = arr
 					this.title = this.$Route.query.title
+					this.example = this.$Route.query.example
 					// console.log(this.goodList)
 					this.codeList()
 					this.ciqList()
@@ -360,15 +373,18 @@
 	right:0;
 }
 
-.element_right{
-	/* margin-left: 100%; */
-	/* padding-left: 0; */
-}
-
 .u-body-item {
-		font-size: 32rpx;
-		color: #333;
-		padding: 20rpx 10rpx;
-		margin:20rpx auto;
-	}
+	font-size: 32rpx;
+	color: #333;
+	padding: 20rpx 10rpx;
+	margin:20rpx auto;
+	border-radius: 4px;
+}
+#exampleView{
+	margin-top: 20px;
+}
+.detail_right {
+	display: flex;
+	justify-content: flex-end;
+}
 </style>

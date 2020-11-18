@@ -3,15 +3,17 @@
         <!-- logo区域 -->
 		<view class="logo_container">
 			<span class="logo" @click="goHome">
-			<span class="hs">HSCode</span>搜索
+			<span class="hs">HS</span>Code
 			</span>
 		</view>
           <!-- 搜索区域 -->
-          <!-- <input  placeholder="搜索" placeholder-class="iconfont iconsousuo"  v-model="key" @confirm="inputChange"  class="uni-input" type="text" confirm-type="search">
-          </input> -->
 		  <u-search margin="100px auto 15px auto"
 		   :show-action="true" v-model="key" action-text="搜索" @search="inputChange" 
 		   @custom="inputChange" :action-style="actionStyle" :animation="true" height="80"></u-search>
+		   <footer class="footer">
+		    copyright www.hscode.vip 版权归 HSCode编码网
+		    <div class="note">本小程序所有数据仅供学习与参考，如有疑问，请联系360996299@qq.com！</div>
+		   </footer>
   </view>
 </template>
 
@@ -66,5 +68,17 @@
 	width: 100%;
 	overflow: auto;
 }
+
+.footer {
+	color: #AAAAAA;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    background-color: #1F2939;
+    height: 80px;
+    line-height: 25px;
+	position: absolute;
+	bottom: 0;
+  }
 
 </style>

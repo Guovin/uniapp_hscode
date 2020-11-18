@@ -3,12 +3,10 @@
 	  <!-- logo区域 -->
 		<view class="logo_container">
 			<span class="logo" @click="goHome">
-			<span class="hs">HSCode</span>搜索
+			<span class="hs">HS</span>Code
 			</span>
 		</view>
 	    <!-- 搜索区域 -->
-          <!-- <input  placeholder="搜索" placeholder-class="iconfont iconsousuo" v-model="key" @confirm="inputChange"  class="uni-input" type="text" confirm-type="search">
-          </input> -->
 			<u-search margin="60px auto 15px auto"
 			 :show-action="true" v-model="key" action-text="搜索" @search="inputChange" 
 			 @custom="inputChange" :action-style="actionStyle" :animation="true"></u-search>
@@ -19,7 +17,7 @@
 				<!-- 加载动画区域 -->
 				<u-loading :show="showLoading"></u-loading>
 				<view v-for="(list,index) in keyList" :key="index">
-	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0" @click="showDetail(list.hscode,list.product_name)">
+	  			<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0" @click="showDetail(list.hscode,list.product_name,list.element_example)">
 	  				<view class="u-body-item-title u-line-2">
 						<!-- 遍历处理高亮搜索词 -->
 						<span v-for="(item,i) in keyLists[index]" :key="i">
@@ -121,12 +119,13 @@
       },
       
       // 点击详情跳转
-      showDetail(hscode,title) {
+      showDetail(hscode,title,example) {
         this.$Router.push({
           path: '/pages/detail/Detail',
           query: {
             hscode: hscode,
-			title: title
+			title: title,
+			example:example
           }
         })
       },
